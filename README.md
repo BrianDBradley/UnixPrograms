@@ -1,6 +1,7 @@
-# Hey Karyn,
-I thought the assignment was taking command line arguments for the inputs - i.e. script.sh 1 2 3 where 1 2 3 are the arguments.
-Turns out we need to prompt user for the arguments and read them in from there.
-So keep that in mind if you start working on this. 
-Shouldn't be that hard to change the code to fit this, but wanted to let you know in case you started working on it before I fixed it.
-Deuces :v:
+# Yo,
+There were some hidden characters from opening it in text editor so I had to use a command to remove them and that command makes a new copy and a new name. Basically, the most current file is HW2-newnew. It's nearly done and I'm planning on finishing it here after a break but again letting you know in case you come back before I finish it. 
+## Leftovers:
+ - 10, 11, and 12 (evens, odds, and factorial) needed to be redone to fit negative numbers. I got a start on 10 and 11 and they do work for negative numbers now but not postive numbers for some reason. 
+ - Also need to make 13 (prime) not a function. Assignment says no functions - guess he doesn't like people going the extra mile :confused:
+
+ Everything other than that should be done
