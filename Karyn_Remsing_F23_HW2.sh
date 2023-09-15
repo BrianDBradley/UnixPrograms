@@ -6,7 +6,7 @@
 echo ""
 echo ""
 echo ""
-echo "This Script is Designed and Implemented by Brian Bradley"
+echo "This Script is Designed and Implemented by Karyn Remsing"
 echo ""
 echo "The function of This script is to:"
 echo ""
@@ -33,7 +33,7 @@ echo ""
 if [ -z "$int1" ] || [ -z "$int2" ] || [ -z "$int3" ]; then
     echo " **** Error - Must input 3 integer Values"
 	echo "End of Script"
-	echo "Brian Bradley - 9 - 18 - 2023"
+	echo "Karyn Remsing - 9 - 18 - 2023"
 	exit 0
 else
     echo -e "1) You Entered    $int1    $int2    $int3"
@@ -154,13 +154,13 @@ echo ""
 if [ $int1 -lt 0 ]; then
 	for((i=$(($int1+1));i<1;i++)); do
 		if ((i % 2 == 0)); then
-			evens+=("$i")
+			evens+=("$i ")
 		fi
 	done
 elif [ $int1 -gt 0 ]; then
-	for((i=1;i<$int1;i++)); do
+	for((i=2;i<$int1;i++)); do
 		if ((i % 2 == 0)); then
-			evens+=("$i")
+			evens+=("$i ")
 		fi
 	done
 fi
@@ -174,14 +174,14 @@ echo ""
 # 11) Odds
 if [ $int3 -lt 0 ]; then
 	for((i=$(($int3+1));i<1;i++)); do
-		if ((i % 2 == 1)); then
-			odds+=("$i")
+		if ((i % 2 != 0)); then
+			odds+=("$i ")
 		fi
 	done
 elif [ $int3 -gt 0 ]; then
-	for((i=1;i<$int3;i++)); do
-		if ((i % 2 == 1)); then
-			odds+=("$i")
+	for((i=2;i<$int3;i++)); do
+		if ((i % 2 != 0)); then
+			odds+=("$i ")
 		fi
 	done
 fi
@@ -200,23 +200,22 @@ echo "12) Factorial of $int3 is: $factorial"
 echo ""
 
 # 13) Prime Function
-is_prime() {
-	local int=$1				# First argument passed
-	if [ $int -le 1 ]; then
-		return 1				# Is not Prime
-	fi
-	for ((i=2; i*i<=$int; i++)) do
-		if [ $((int % i)) -eq 0 ]; then
-			return 1
-		fi
-	done
-	return 0 					# Is a prime
-}
-if is_prime "$int2"; then
-	echo "13) $int2 is prime"
+primeOrNot=""
+if [ $int2 -le 1 ]; then
+	primeOrNot+="not prime."
 else
-	echo "13) $int2 is not prime"
+	for ((i=2; $i*$i<=$int2; i++)) do
+		if [ $(($int2 % i)) -eq 0 ]; then
+			primeOrNot+="not prime."
+			break
+		else
+			primeOrNot+="prime."
+			break
+		fi
+
+	done
 fi
+echo "13) $int2 is $primeOrNot"
 echo ""
 
 #14) Distinct Sequence?
@@ -244,7 +243,7 @@ echo ""
 
 echo "End of Script"
 echo ""
-echo "Brian Bradley - 9 - 18 - 2023"
+echo "Karyn Remsing - 9 - 18 - 2023"
 
 exit 0
 
