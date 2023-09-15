@@ -23,7 +23,7 @@ smallest=$int1
 largest=$int1
 sum=0
 product=1
-factorial=1
+factorial=1                                                                                                                                                                     
 
 
 # Find Smallest and Largest
