@@ -5,3 +5,6 @@ There were some hidden characters from opening it in text editor so I had to use
  - Also need to make 13 (prime) not a function. Assignment says no functions - guess he doesn't like people going the extra mile :confused:
 
  Everything other than that should be done
+
+ # wait i forgot
+ also the distinct sequence only accepts positive integers. Like the equation itself doesn't work unless n is positive. I put in a "hey n isn't positive message" for when n <=0 but the assignment doesn't say what should be output if its less than or equal to 0 so I guess we're just winging it. Let me know if that message works for you
