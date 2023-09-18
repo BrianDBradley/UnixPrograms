@@ -26,24 +26,24 @@ echo "13. Determine whether or not the second integer argument is a prime number
 echo "14. Calculating Distinct Sequence of the second integer."
 echo ""
 echo -n "Enter 3 integer Values - - - - > " 
-read int1 int2 int3
+read -a ints
 echo ""
 echo ""
 # Check for 3 intgers
-if [ -z "$int1" ] || [ -z "$int2" ] || [ -z "$int3" ]; then
+if [ ${#ints[@]} -ne 3 ]; then
     echo " **** Error - Must input 3 integer Values"
 	echo "End of Script"
 	echo "Brian Bradley - 9 - 18 - 2023"
 	exit 0
 else
-    echo -e "1) You Entered    $int1    $int2    $int3"
+    echo -e "1) You Entered    ${ints[0]}    ${ints[1]}    ${ints[2]}"
     echo ""
 fi
 
 
 # Initialize variables
-smallest=$int1
-largest=$int1
+smallest=${ints[0]}
+largest=${ints[0]}
 sum=0
 product=1
 factorial=1                                                                                                                                                                     
@@ -51,18 +51,18 @@ factorial=1
 
 # Find Smallest and Largest
 # -lt: less than   -gt: greater than
-if [ "$int2" -lt "$smallest" ]; then 
-	smallest=$int2
+if [ "${ints[1]}" -lt "$smallest" ]; then 
+	smallest=${ints[1]}
 fi
-if [ "$int2" -gt "$largest" ]; then 
-	largest=$int2
+if [ "${ints[1]}" -gt "$largest" ]; then 
+	largest=${ints[1]}
 fi
 
-if [ "$int3" -lt "$smallest" ]; then 
-	smallest=$int3
+if [ "${ints[2]}" -lt "$smallest" ]; then 
+	smallest=${ints[2]}
 fi
-if [ "$int3" -gt "$largest" ]; then 
-	largest=$int3
+if [ "${ints[2]}" -gt "$largest" ]; then 
+	largest=${ints[2]}
 fi
 
 echo "2) The Smallest integer is $smallest"
@@ -80,7 +80,7 @@ declare -a oddOrEven=()
 declare -a evens=()
 
 # Loop through arguments
-for var in "$int1" "$int2" "$int3";
+for var in "${ints[@]}";
 do
 	# Sum arguments
 	sum=$(($sum+$var))
@@ -112,14 +112,14 @@ do
 done
 
 #Print results
-echo "4) $int1 + $int2 + $int3 = $sum"
+echo "4) ${ints[0]} + ${ints[1]} + ${ints[2]} = $sum"
 echo ""
-echo "5) $int1 * $int2 * $int3 = $product"
+echo "5) ${ints[0]} * ${ints[1]} * ${ints[2]} = $product"
 echo ""
 avg=$(($sum / 3))
-echo "6) ($int1 + $int2 + $int3)/3 = $avg"
+echo "6) (${ints[0]} + ${ints[1]} + ${ints[2]})/3 = $avg"
 echo ""
-echo "7) $int1*$int1 = ${squares[0]}, $int2*$int2 = ${squares[1]}, $int3*$int3 = ${squares[2]}"
+echo "7) ${ints[0]}*${ints[0]} = ${squares[0]}, ${ints[1]}*${ints[1]} = ${squares[1]}, ${ints[2]}*${ints[2]} = ${squares[2]}"
 echo ""
 
 # I switched the echos to printfs because -n was not working.
@@ -127,11 +127,11 @@ echo ""
 for i in {1..3}
 do
 	if [ "$i" -eq 1 ]; then
-		echo -n "8) $int1 is ${posOrNeg[$i-1]},"
+		echo -n "8) ${ints[0]} is ${posOrNeg[$i-1]},"
 	elif [ "$i" -eq 2 ]; then
-		echo -n " $int2 is ${posOrNeg[$i-1]},"
+		echo -n " ${ints[1]} is ${posOrNeg[$i-1]},"
 	elif [ "$i" -eq 3 ]; then
-		echo " $int3 is ${posOrNeg[$i-1]}."
+		echo " ${ints[2]} is ${posOrNeg[$i-1]}."
 	fi
 done
 
@@ -141,30 +141,30 @@ echo ""
 for i in {1..3}
 do
 	if [ "$i" -eq 1 ]; then
-		echo -n "9) $int1 is ${oddOrEven[$i-1]},"
+		echo -n "9) ${ints[0]} is ${oddOrEven[$i-1]},"
 	elif [ "$i" -eq 2 ]; then
-		echo -n " $int2 is ${oddOrEven[$i-1]},"
+		echo -n " ${ints[1]} is ${oddOrEven[$i-1]},"
 	elif [ "$i" -eq 3 ]; then
-		echo " $int3 is ${oddOrEven[$i-1]}."
+		echo " ${ints[2]} is ${oddOrEven[$i-1]}."
 	fi
 done
 echo ""
 
 # 10) Evens
-if [ $int1 -lt 0 ]; then
-	for((i=$(($int1+1));i<1;i++)); do
+if [ ${ints[0]} -lt 0 ]; then
+	for((i=$((${ints[0]}+1));i<1;i++)); do
 		if ((i % 2 == 0)); then
 			evens+=("$i ")
 		fi
 	done
-elif [ $int1 -gt 0 ]; then
-	for((i=2;i<$int1;i++)); do
+elif [ ${ints[0]} -gt 0 ]; then
+	for((i=2;i<${ints[0]};i++)); do
 		if ((i % 2 == 0)); then
 			evens+=("$i ")
 		fi
 	done
 fi
-echo -n "10) All even numbers between 1 and $int1 are: "
+echo -n "10) All even numbers between 1 and ${ints[0]} are: "
 for einteger in "${evens[@]}"; do
 	echo -n "$einteger "
 done
@@ -172,20 +172,20 @@ echo ""
 echo ""
 
 # 11) Odds
-if [ $int3 -lt 0 ]; then
-	for((i=$(($int3+1));i<1;i++)); do
+if [ ${ints[2]} -lt 0 ]; then
+	for((i=$((${ints[2]}+1));i<1;i++)); do
 		if ((i % 2 != 0)); then
 			odds+=("$i ")
 		fi
 	done
-elif [ $int3 -gt 0 ]; then
-	for((i=2;i<$int3;i++)); do
+elif [ ${ints[2]} -gt 0 ]; then
+	for((i=2;i<${ints[2]};i++)); do
 		if ((i % 2 != 0)); then
 			odds+=("$i ")
 		fi
 	done
 fi
-echo -n "11) All odd numbers between 1 and $int3 are: "
+echo -n "11) All odd numbers between 1 and ${ints[2]} are: "
 for ointeger in "${odds[@]}"; do
 	echo -n "$ointeger"
 done
@@ -193,19 +193,19 @@ echo ""
 echo ""
 
 # 12) Factorial
-for ((i=1; i<=$int3; i++)); do
+for ((i=1; i<=${ints[2]}; i++)); do
         factorial=$(($factorial * $i))
 done
-echo "12) Factorial of $int3 is: $factorial"
+echo "12) Factorial of ${ints[2]} is: $factorial"
 echo ""
 
 # 13) Prime Function
 primeOrNot=""
-if [ $int2 -le 1 ]; then
+if [ ${ints[1]} -le 1 ]; then
 	primeOrNot+="not prime."
 else
-	for ((i=2; $i*$i<=$int2; i++)) do
-		if [ $(($int2 % i)) -eq 0 ]; then
+	for ((i=2; $i*$i<=${ints[1]}; i++)) do
+		if [ $((${ints[1]} % i)) -eq 0 ]; then
 			primeOrNot+="not prime."
 			break
 		else
@@ -215,26 +215,26 @@ else
 
 	done
 fi
-echo "13) $int2 is $primeOrNot"
+echo "13) ${ints[1]} is $primeOrNot"
 echo ""
 
 #14) Distinct Sequence?
-echo -n "14) Distinct sequence for the integer $int2 is : "
-echo -n "$int2 "
-while [ $int2 -ne 1 ]
+echo -n "14) Distinct sequence for the integer ${ints[1]} is : "
+echo -n "${ints[1]} "
+while [ ${ints[1]} -ne 1 ]
 do
-	if [ $int2 -le 0 ]
+	if [ ${ints[1]} -le 0 ]
 	then
 		echo ""
-		echo "$int2 is not positive. Therefore, there is no distinct sequence for $int2"
-		int2=1
-	elif (($int2 % 2 == 0));
+		echo "${ints[1]} is not positive. Therefore, there is no distinct sequence for ${ints[1]}"
+		ints[1]=1
+	elif ((${ints[1]} % 2 == 0));
 	then
-		int2=$(($int2 / 2))
-		echo -n "$int2 "
+		ints[1]=$((${ints[1]} / 2))
+		echo -n "${ints[1]} "
 	else
-		int2=$(($int2 * 3 + 1))
-		echo -n "$int2 "
+		ints[1]=$((${ints[1]} * 3 + 1))
+		echo -n "${ints[1]} "
 	fi
 done
 
