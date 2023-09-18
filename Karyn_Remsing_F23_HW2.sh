@@ -193,10 +193,15 @@ echo ""
 echo ""
 
 # 12) Factorial
-for ((i=1; i<=${ints[2]}; i++)); do
-        factorial=$(($factorial * $i))
-done
-echo "12) Factorial of ${ints[2]} is: $factorial"
+if [ ${ints[2]} -ge 1 ]
+then
+	for ((i=1; i<=${ints[2]}; i++)); do
+        	factorial=$(($factorial * $i))
+	done
+	echo "12) Factorial of ${ints[2]} is: $factorial"
+else
+	echo "12) **** Error: Cannot take factorial of non-positive integer ${ints[2]}."
+fi
 echo ""
 
 # 13) Prime Function
