@@ -207,18 +207,22 @@ echo ""
 # 13) Prime Function
 primeOrNot=""
 if [ ${ints[1]} -le 1 ]; then
-	primeOrNot+="not prime."
+	primeOrNot="not prime."
 else
+	prime=true
+	# Tests divisiibilty from 2 to the sqrt of the int
 	for ((i=2; $i*$i<=${ints[1]}; i++)) do
+		# Check Remainder
 		if [ $((${ints[1]} % i)) -eq 0 ]; then
-			primeOrNot+="not prime."
-			break
-		else
-			primeOrNot+="prime."
+			prime=false
 			break
 		fi
-
 	done
+	if $prime; then
+        primeOrNot="prime."
+    else
+        primeOrNot="not prime."
+    fi
 fi
 echo "13) ${ints[1]} is $primeOrNot"
 echo ""
