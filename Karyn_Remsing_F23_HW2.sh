@@ -1,4 +1,4 @@
-# NAME: Brian Bradley
+# NAME: Karyn Remsing
 # CS4350 - Unix Systems Programming
 # Section Number: 001
 # Assignment Number: 2
