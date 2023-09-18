@@ -219,10 +219,10 @@ else
 		fi
 	done
 	if $prime; then
-        primeOrNot="prime."
-    else
-        primeOrNot="not prime."
-    fi
+        	primeOrNot="prime."
+    	else
+       		primeOrNot="not prime."
+    	fi
 fi
 echo "13) ${ints[1]} is $primeOrNot"
 echo ""
