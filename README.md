@@ -1,2 +1,2 @@
-# "Started" HW2
-If I don't start on this today (Tuesday), I'll probably just all-nighter it on Thursday night since it's due Friday morning and I'm gonna study for the Stats test on Wednesday. If you get some time to work on it, awesome, if not I pull all-nighters all the time and this doesn't seem that hard so no sweat.
+# Half-ish done
+At the bottom I put comments on where you can find the info to do the stuff. I stopped at problem 8 so I don't leave you with the more complex ones, but I honestly didn't look at what the next problems were, so if I stopped right before they become not so ridiculously easy that was completely unintentional. Went ahead and added both our names to the comments. Gonna leave it as named HW3 until it's time to turn it in then I'll rename it to what he wants.
