@@ -1,5 +1,5 @@
 # Name: Brian Bradley and Karyn Remsing CS4350 - Unix Systems Programming
-# Serial Numbers: 3 and X
+# Serial Numbers: 3 and 12
 # Assignment Number: 3
 # Due Date: 9 / 29 / 2023 No later than 10:00 a.m.
 echo "Shell programming by Brian Bradley and Karyn Remsing" 
