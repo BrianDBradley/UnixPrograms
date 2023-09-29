@@ -1,4 +1,4 @@
-# We did it, we did it, we did it, yeah!
+# Serial number added!!!
 11. doesnt make sense, it's not gonna display anything. I think its a fuck up on his part, or maybe its intentional. none of the file lines end in "programing" 
      - yeah he just fucked this one up I'm pretty sure. We've followed instructions exactly as told so I'm not worried about it
 14. I cant get this one, but I wanna go running, so I'll come back to it
