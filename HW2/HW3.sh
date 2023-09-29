@@ -15,7 +15,7 @@ echo "@ TEXAS STATE UNIVERSITY" >> zNew.txt
 
 echo ""
 echo ""
-echo "	2. The content of the created file is: "
+echo "  2. The content of the created file is: "
 
 cat zNew.txt
 
@@ -28,11 +28,11 @@ echo "  4. All lines with digits:"
 grep [[:digit:]] zNew.txt
 
 echo ""
-echo "  5. All lines with lowercase letters:"
+echo "  5. All lines with lowercase characters:"
 grep [[:lower:]] zNew.txt
 
 echo ""
-echo "  6. All lines with uppercase letters: "
+echo "  6. All lines with uppercase characters: "
 grep [[:upper:]] zNew.txt
 
 echo ""
@@ -65,7 +65,7 @@ grep ^C.*0$ zNew.txt
 
 echo "" 
 echo " 14.  All lines that contain a word that starts with s and end with l :"
-grep ^s.*l$ zNew.txt
+grep -E s.*l zNew.txt
 
 echo "" 
 echo " 15.  Deleting the existing File zNew.txt :"
@@ -73,7 +73,12 @@ rm zNew.txt
 
 echo "" 
 echo " 16.  Display the content of zNew.txt :"
-cat zNew.txt
+if [ -f "zNew.txt" ]
+then
+	cat zNew.txt
+else
+	echo "zNew.txt Does Not Exist"
+fi
 
 echo "" 
 echo "" 

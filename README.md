@@ -1,9 +1,10 @@
-# HEEEELLLLLP 11 and 14
-11. doesnt make sense, it's not gonna display anything. I think its a fuck up on his part, or maybe its intentional. none of the file lines end in "programing"
+# We did it, we did it, we did it, yeah!
+11. doesnt make sense, it's not gonna display anything. I think its a fuck up on his part, or maybe its intentional. none of the file lines end in "programing" 
+     - yeah he just fucked this one up I'm pretty sure. We've followed instructions exactly as told so I'm not worried about it
 14. I cant get this one, but I wanna go running, so I'll come back to it
-
-## Added some screenshots of slides to the repo
-Some png files of screenshots of the slides for easy access. That way we don't have to go find them each time
+     - fixed, had to add -E after grep
+Pretty sure that's everything. I'll probably go back and check it one more time just to make sure but I think we're good.
+### Don't forget to add your serial number up at the top
 
 Execute the file
 • chmod +x HW2.sh
