@@ -3,3 +3,7 @@ At the bottom I put comments on where you can find the info to do the stuff. I s
 
 ## Added some screenshots of slides to the repo
 Some png files of screenshots of the slides for easy access. That way we don't have to go find them each time
+
+Execute the file
+• chmod +x HW2.sh
+• ./HW2.sh
