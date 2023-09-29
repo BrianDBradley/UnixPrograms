@@ -3,6 +3,7 @@
      - yeah he just fucked this one up I'm pretty sure. We've followed instructions exactly as told so I'm not worried about it
 14. I cant get this one, but I wanna go running, so I'll come back to it
      - fixed, had to add -E after grep
+     - Thank you!
 
 ### Don't forget to add your serial number up at the top
 Pretty sure that's everything. I'll probably go back and check it one more time just to make sure but I think we're good.
