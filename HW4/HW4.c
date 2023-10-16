@@ -13,6 +13,7 @@
 #include <time.h>
 
 int generateRandomNumber();
+int calculateTimes(int);
 
 int main()
 {
@@ -26,7 +27,7 @@ int main()
     int inputCheck;
     bool validInput = false; 
     int randomNum1, randomNum2;
-    int repeatRandNum1, repeatRandNum2;
+
     srand(time(NULL));
 
     // Check user input
@@ -68,6 +69,8 @@ int main()
         bool sumsAreEqual;
         int loopCount = 0;
 
+        printf("\n\nProcessing . . . . . . .\n");
+
         randomNum1 = generateRandomNumber();
         printf("\n\nFirst Generated Number: %d\n", randomNum1);
 
@@ -77,22 +80,7 @@ int main()
         sum = (randomNum1 + randomNum2);
         printf("\nFirst Number + Second Number  =   %d\n", sum);
 
-        while (!sumsAreEqual){
-            repeatRandNum1 = generateRandomNumber();
-            printf("\n\nGenerating First Number   =  %d\n", repeatRandNum1);
-
-            repeatRandNum2 = generateRandomNumber();
-            printf("Generating Second Number  =  %d\n", repeatRandNum2);
-
-            repeatSum = (repeatRandNum1 + repeatRandNum2);
-            printf("The Sum of the generated numbers is  :  %d\n", repeatSum);
-
-            if (sum == repeatSum){
-                sumsAreEqual = true;
-            }
-
-            loopCount++;
-        }
+        loopCount = calculateTimes(sum);
 
         printf("\n\nNumber of Times the Numbers were Generated\n");
         printf("Before the Desired sum was reached  =  %d\n", loopCount);
@@ -105,4 +93,30 @@ int main()
 int generateRandomNumber() {
     int randNum = rand() % 46 + 5;
     return randNum;
+}
+
+// Calculate the number of times the numbers are generated to get the desired sum
+int calculateTimes(sum) {
+    int repeatSum;
+    bool sumsAreEqual;
+    int loopCount = 0;
+    int repeatRandNum1, repeatRandNum2;
+
+    while (!sumsAreEqual){
+        repeatRandNum1 = generateRandomNumber();
+        printf("\n\nGenerating First Number   =  %d\n", repeatRandNum1);
+
+        repeatRandNum2 = generateRandomNumber();
+        printf("Generating Second Number  =  %d\n", repeatRandNum2);
+
+        repeatSum = (repeatRandNum1 + repeatRandNum2);
+        printf("The Sum of the generated numbers is  :  %d\n", repeatSum);
+
+        if (sum == repeatSum){
+            sumsAreEqual = true;
+        }
+
+        loopCount++;
+    }
+    return loopCount;
 }
