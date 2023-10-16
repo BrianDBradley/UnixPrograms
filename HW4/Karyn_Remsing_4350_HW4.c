@@ -52,39 +52,40 @@ int main()
             validInput = true;
         }
 
+    
+
+
+        if(userInput == 9 && validInput)
+        {
+            printf("\n\n\nProgram is Terminated");
+            printf("\n\nImplemented by Brian Bradley and Karyn Remsing\n\n");
+            printf("10 - 13 - 2023\n");
+            return 0;
+        }
+
+        else if (userInput == 1) {
+            int sum;            // random number 1 + random number 2
+            int loopCount = 0;  // the number of repetions needed to reproduce the first sum
+
+            randomNum1 = generateRandomNumber();
+            printf("\n\nFirst Generated Number: %d\n", randomNum1);
+
+            randomNum2 = generateRandomNumber();
+            printf("Second Generated Number: %d\n", randomNum2);
+
+            sum = (randomNum1 + randomNum2);
+            printf("\nFirst Number + Second Number  =   %d\n", sum);
+
+	    printf("\n\nProcssing . . . . . . .\n");
+
+            loopCount = calculateTimes(sum);
+
+            printf("\n\nNumber of Times the Numbers were Generated\n");
+            printf("Before the Desired sum was reached  =  %d\n\n\n", loopCount);
+           
+	    validInput = false;
+        }
     }
-
-
-    if(userInput == 9)
-    {
-        printf("\n\n\nProgram is Terminated");
-        printf("\n\n Implemented by Brian Bradley and Karyn Remsing");
-        printf("10 - 13 - 2023\n");
-        return 0;
-    }
-
-    else if (userInput == 1) {
-        int sum;            // random number 1 + random number 2
-        int loopCount = 0;  // the number of repetions needed to reproduce the first sum
-
-        printf("\n\nProcessing . . . . . . .\n");
-
-        randomNum1 = generateRandomNumber();
-        printf("\n\nFirst Generated Number: %d\n", randomNum1);
-
-        randomNum2 = generateRandomNumber();
-        printf("Second Generated Number: %d\n", randomNum2);
-
-        sum = (randomNum1 + randomNum2);
-        printf("\nFirst Number + Second Number  =   %d\n", sum);
-
-        loopCount = calculateTimes(sum);
-
-        printf("\n\nNumber of Times the Numbers were Generated\n");
-        printf("Before the Desired sum was reached  =  %d\n", loopCount);
-
-    }
-
 }
 
 
