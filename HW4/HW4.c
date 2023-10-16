@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 int main()
 {
@@ -19,7 +20,7 @@ int main()
   printf("times it takes for the sum to be reproduced again.\n\n");
 
   int userInput = 0;
-
+  int check;
   bool flag = false; // Initialize the flag to false
 
   // Check user input
@@ -28,17 +29,22 @@ int main()
     printf("1 - Generate Numbers\n");
     printf("9 - Exit The Program    ---->    ");
 
-    scanf("%d", &userInput);
+    check = scanf("%d", &userInput);
 
-    if(userInput != 1 && userInput != 9){
+    // Check if int, 1 or 9
+    if(check != 1 || (userInput != 1 && userInput != 9)) {
       printf("\n\n**  Invalid Selection **\n\n\n\n");
       flag = false;
-    }
 
-    // Check the condition and update the flag as needed
-    else if (userInput == 1 || userInput == 9) {
+      // Clear input buffer to avoid infinite looping
+      int c;
+      while ((c = getchar()) != '\n' && c != EOF);
+    } 
+
+    else {
       flag = true;
     }
+
   }
 
 
