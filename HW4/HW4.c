@@ -9,6 +9,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <time.h>
+
+int generateRandomNumber();
 
 int main()
 {
@@ -22,6 +26,7 @@ int main()
   int userInput = 0;
   int inputCheck;
   bool flag = false; 
+  int randomNum1, randomNum2;
 
   // Check user input
   while (!flag) {
@@ -59,6 +64,16 @@ int main()
   if(userInput == 1)
   {
       printf("\n\n Input check working");
+
+      randomNum1 = generateRandomNumber();
+      randomNum2 = generateRandomNumber();
+
   }
 
+}
+
+
+int generateRandomNumber() {
+    srand(time(NULL));
+    return rand();
 }
