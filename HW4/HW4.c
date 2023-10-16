@@ -20,44 +20,45 @@ int main()
   printf("times it takes for the sum to be reproduced again.\n\n");
 
   int userInput = 0;
-  int check;
-  bool flag = false; // Initialize the flag to false
+  int inputCheck;
+  bool flag = false; 
 
   // Check user input
   while (!flag) {
-    printf("Select One of the Following\n\n");
-    printf("1 - Generate Numbers\n");
-    printf("9 - Exit The Program    ---->    ");
+      printf("Select One of the Following\n\n");
+      printf("1 - Generate Numbers\n");
+      printf("9 - Exit The Program    ---->    ");
 
-    check = scanf("%d", &userInput);
+      inputCheck = scanf("%d", &userInput);
 
-    // Check if int, 1 or 9
-    if(check != 1 || (userInput != 1 && userInput != 9)) {
-      printf("\n\n**  Invalid Selection **\n\n\n\n");
-      flag = false;
+      // Check if int, 1 or 9
+      if(inputCheck != 1 || (userInput != 1 && userInput != 9)) {
+          printf("\n\n**  Invalid Selection **\n\n\n\n");
+          flag = false;
 
-      // Clear input buffer to avoid infinite looping
-      int c;
-      while ((c = getchar()) != '\n' && c != EOF);
-    } 
+          // Clear input buffer to avoid infinite looping
+          int c;
+          while ((c = getchar()) != '\n' && c != EOF);
+      } 
 
-    else {
-      flag = true;
-    }
+      else {
+          flag = true;
+      }
 
   }
 
 
   if(userInput == 9)
   {
-    printf("\n\n\nProgram is Terminated");
-    printf("\n\n Implemented by Brian Bradley and Karyn Remsing");
-    printf("10 - 13 - 2023\n");
-    return 0;
+      printf("\n\n\nProgram is Terminated");
+      printf("\n\n Implemented by Brian Bradley and Karyn Remsing");
+      printf("10 - 13 - 2023\n");
+      return 0;
   }
 
   if(userInput == 1)
   {
-        printf("\n\n Input check working");
+      printf("\n\n Input check working");
   }
+
 }
