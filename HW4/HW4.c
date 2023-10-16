@@ -24,12 +24,13 @@ int main()
 
     int userInput = 0;
     int inputCheck;
-    bool flag = false; 
+    bool validInput = false; 
     int randomNum1, randomNum2;
+    int repeatRandNum1, repeatRandNum2;
     srand(time(NULL));
 
     // Check user input
-    while (!flag) {
+    while (!validInput) {
         printf("Select One of the Following\n\n");
         printf("1 - Generate Numbers\n");
         printf("9 - Exit The Program    ---->    ");
@@ -39,7 +40,7 @@ int main()
         // Check if int, 1 or 9
         if(inputCheck != 1 || (userInput != 1 && userInput != 9)) {
             printf("\n\n**  Invalid Selection **\n\n\n\n");
-            flag = false;
+            validInput = false;
 
             // Clear input buffer to avoid infinite looping
             int c;
@@ -47,7 +48,7 @@ int main()
         } 
 
         else {
-            flag = true;
+            validInput = true;
         }
 
     }
@@ -63,6 +64,9 @@ int main()
 
     if (userInput == 1) {
         int sum;
+        int repeatSum;
+        bool sumsAreEqual;
+        int loopCount = 0;
 
         randomNum1 = generateRandomNumber();
         printf("\n\nFirst Generated Number: %d\n", randomNum1);
@@ -72,6 +76,27 @@ int main()
 
         sum = (randomNum1 + randomNum2);
         printf("\nFirst Number + Second Number  =   %d\n", sum);
+
+        while (!sumsAreEqual){
+            repeatRandNum1 = generateRandomNumber();
+            printf("\n\nGenerating First Number   =  %d\n", repeatRandNum1);
+
+            repeatRandNum2 = generateRandomNumber();
+            printf("Generating Second Number  =  %d\n", repeatRandNum2);
+
+            repeatSum = (repeatRandNum1 + repeatRandNum2);
+            printf("The Sum of the generated numbers is  :  %d\n", repeatSum);
+
+            if (sum == repeatSum){
+                sumsAreEqual = true;
+            }
+
+            loopCount++;
+        }
+
+        printf("\n\nNumber of Times the Numbers were Generated\n");
+        printf("Before the Desired sum was reached  =  %d\n", loopCount);
+
     }
 
 }
