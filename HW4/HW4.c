@@ -23,10 +23,10 @@ int main()
     printf("the generated numbers. Then, the program will find the number of\n");
     printf("times it takes for the sum to be reproduced again.\n\n");
 
-    int userInput = 0;
-    int inputCheck;
-    bool validInput = false; 
-    int randomNum1, randomNum2;
+    int userInput = 0;            // 1 = generate nums, 9 = terminate
+    int inputCheck;               // 1 = integer, 0 = other
+    bool validInput = false;      // 1 or 9 = true, other = false
+    int randomNum1, randomNum2;   // function generated random numbers
 
     srand(time(NULL));
 
@@ -63,11 +63,9 @@ int main()
         return 0;
     }
 
-    if (userInput == 1) {
-        int sum;
-        int repeatSum;
-        bool sumsAreEqual;
-        int loopCount = 0;
+    else if (userInput == 1) {
+        int sum;            // random number 1 + random number 2
+        int loopCount = 0;  // the number of repetions needed to reproduce the first sum
 
         printf("\n\nProcessing . . . . . . .\n");
 
@@ -89,18 +87,20 @@ int main()
 
 }
 
+
 // Generate numbers between 5 and 50 inclusive
 int generateRandomNumber() {
-    int randNum = rand() % 46 + 5;
+    int randNum = rand() % 46 + 5;  // 5-50 inclusive
     return randNum;
 }
 
+
 // Calculate the number of times the numbers are generated to get the desired sum
 int calculateTimes(sum) {
-    int repeatSum;
-    bool sumsAreEqual;
-    int loopCount = 0;
-    int repeatRandNum1, repeatRandNum2;
+    int repeatSum;                        // sum of repeated rand generation
+    bool sumsAreEqual;                    // if true exit sum checking loop
+    int loopCount = 0;                    // loop counter for repeating until found
+    int repeatRandNum1, repeatRandNum2;   // 1st and 2nd rand gen numbers
 
     while (!sumsAreEqual){
         repeatRandNum1 = generateRandomNumber();
