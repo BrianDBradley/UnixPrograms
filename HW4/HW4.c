@@ -16,64 +16,68 @@ int generateRandomNumber();
 
 int main()
 {
+    printf("\nPracticing C Programming Language\n\n");
+    printf("The purpose of this program is to generate 2 random number\n");
+    printf("between 5 and 50 inclusive. A sum will be calculated by adding\n");
+    printf("the generated numbers. Then, the program will find the number of\n");
+    printf("times it takes for the sum to be reproduced again.\n\n");
 
-  printf("\nPracticing C Programming Language\n\n");
-  printf("The purpose of this program is to generate 2 random number\n");
-  printf("between 5 and 50 inclusive. A sum will be calculated by adding\n");
-  printf("the generated numbers. Then, the program will find the number of\n");
-  printf("times it takes for the sum to be reproduced again.\n\n");
+    int userInput = 0;
+    int inputCheck;
+    bool flag = false; 
+    int randomNum1, randomNum2;
+    srand(time(NULL));
 
-  int userInput = 0;
-  int inputCheck;
-  bool flag = false; 
-  int randomNum1, randomNum2;
+    // Check user input
+    while (!flag) {
+        printf("Select One of the Following\n\n");
+        printf("1 - Generate Numbers\n");
+        printf("9 - Exit The Program    ---->    ");
 
-  // Check user input
-  while (!flag) {
-      printf("Select One of the Following\n\n");
-      printf("1 - Generate Numbers\n");
-      printf("9 - Exit The Program    ---->    ");
+        inputCheck = scanf("%d", &userInput);
 
-      inputCheck = scanf("%d", &userInput);
+        // Check if int, 1 or 9
+        if(inputCheck != 1 || (userInput != 1 && userInput != 9)) {
+            printf("\n\n**  Invalid Selection **\n\n\n\n");
+            flag = false;
 
-      // Check if int, 1 or 9
-      if(inputCheck != 1 || (userInput != 1 && userInput != 9)) {
-          printf("\n\n**  Invalid Selection **\n\n\n\n");
-          flag = false;
+            // Clear input buffer to avoid infinite looping
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+        } 
 
-          // Clear input buffer to avoid infinite looping
-          int c;
-          while ((c = getchar()) != '\n' && c != EOF);
-      } 
+        else {
+            flag = true;
+        }
 
-      else {
-          flag = true;
-      }
-
-  }
+    }
 
 
-  if(userInput == 9)
-  {
-      printf("\n\n\nProgram is Terminated");
-      printf("\n\n Implemented by Brian Bradley and Karyn Remsing");
-      printf("10 - 13 - 2023\n");
-      return 0;
-  }
+    if(userInput == 9)
+    {
+        printf("\n\n\nProgram is Terminated");
+        printf("\n\n Implemented by Brian Bradley and Karyn Remsing");
+        printf("10 - 13 - 2023\n");
+        return 0;
+    }
 
-  if(userInput == 1)
-  {
-      printf("\n\n Input check working");
+    if (userInput == 1) {
+        int sum;
 
-      randomNum1 = generateRandomNumber();
-      randomNum2 = generateRandomNumber();
+        randomNum1 = generateRandomNumber();
+        printf("\n\nFirst Generated Number: %d\n", randomNum1);
 
-  }
+        randomNum2 = generateRandomNumber();
+        printf("Second Generated Number: %d\n", randomNum2);
+
+        sum = (randomNum1 + randomNum2);
+        printf("\nFirst Number + Second Number  =   %d\n", sum);
+    }
 
 }
 
-
+// Generate numbers between 5 and 50 inclusive
 int generateRandomNumber() {
-    srand(time(NULL));
-    return rand();
+    int randNum = rand() % 46 + 5;
+    return randNum;
 }
