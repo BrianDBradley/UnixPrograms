@@ -1,5 +1,6 @@
 # YOU DIDNT TELL ME YOU STARTED!
  - I feel like a slacker
+ - You got my serial number correct!
  - 
  - All that's left is the final function, got it started but not much more
  - Check output in case I made any mistakes
