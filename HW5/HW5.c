@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <math.h>    // to use sqrt
 
 bool checkPrime(int number);
 void allPrimes(int number);
@@ -34,63 +35,62 @@ int main()
         printf("Enter A Positive Integer ----> : ");
         inputCheck = scanf("%d", &userInput);
 
-	if(inputCheck == 1) // check if got input
-	{
-	    if(userInput <= 1 || userInput > 1000) // check if in bounds
-	    {
-	        printf("Invalid Number, Number must be between 1 and 1000\n\n");
-		runFunctions = false; // don't run the functions if out of bounds
-	    }
-	     
-	}
-	else
-	    runFunctions = false; // don't run functions if no input
+		if(inputCheck == 1) // check if got input
+		{
+			if(userInput <= 1 || userInput > 1000) // check if in bounds
+			{
+				printf("Invalid Number, Number must be between 1 and 1000\n\n");
+			runFunctions = false; // don't run the functions if out of bounds
+			}
+			
+		}
+		else
+			runFunctions = false; // don't run functions if no input
 
-	if(runFunctions)
-	{
-	    // check if prime
-	    bool prime = checkPrime(userInput);
-	    printf("\n%d is ", userInput);
-	    if(prime)
-	        printf(" prime.\n\n");
-	    else
-	        printf(" not prime.\n\n");
+		if(runFunctions)
+		{
+			// check if prime
+			bool prime = checkPrime(userInput);
+			printf("\n%d is ", userInput);
+			if(prime)
+				printf(" prime.\n\n");
+			else
+				printf(" not prime.\n\n");
 
-	    // find all primes from 2 to number
-	    allPrimes(userInput);
+			// find all primes from 2 to number
+			allPrimes(userInput);
 
-	    // TO-DO find all square pairings
-	    squarePairs(userInput);
-        }
-	
-	bool validYesOrNo = false; // to run loop until valid input
-	char yesOrNo;
-	while(!validYesOrNo)
-	{
-	    printf("Would you like to repeat the process for another number?\n\n");
-	    printf("Enter Y, y or N, n -------->");
-	    scanf(" %c", &yesOrNo);
-	    yesOrNo = tolower(yesOrNo);
-	    if(yesOrNo == 'y')
-	    {
-		validYesOrNo = true;
-		runProgram = true;
-	    }
-	    else if(yesOrNo == 'n')
-	    {
-		printf("\n\nMathematics and Computer Programming\n");
-		printf("Prepared by Brian Bradley and Karyn Remsing\n");
-		printf("10-25-2023\n\n");
-		validYesOrNo = true;
-		runProgram = false;
-	    }
-	    else
-	    {
-		printf("Invalid choice, must enter Y, y or N, n\n\n");
-	    	validYesOrNo = false;
-	    }
-	}
-	
+			// TO-DO find all square pairings
+			squarePairs(userInput);
+			}
+		
+		bool validYesOrNo = false; // to run loop until valid input
+		char yesOrNo;
+		while(!validYesOrNo)
+		{
+			printf("Would you like to repeat the process for another number?\n\n");
+			printf("Enter Y, y or N, n -------->");
+			scanf(" %c", &yesOrNo);
+			yesOrNo = tolower(yesOrNo);
+			if(yesOrNo == 'y')
+			{
+			validYesOrNo = true;
+			runProgram = true;
+			}
+			else if(yesOrNo == 'n')
+			{
+			printf("\n\nMathematics and Computer Programming\n");
+			printf("Prepared by Brian Bradley and Karyn Remsing\n");
+			printf("10-25-2023\n\n");
+			validYesOrNo = true;
+			runProgram = false;
+			}
+			else
+			{
+			printf("Invalid choice, must enter Y, y or N, n\n\n");
+				validYesOrNo = false;
+			}
+		}	
     }
     return 0;
 }
@@ -136,26 +136,66 @@ void allPrimes(int number)
 
 // not specified for project but probably helpful for the function below this one
 // check if number is perfect square
-bool perfectSquare(int number)
+bool perfectSquare(int x)
 {
+	if (x >= 0) {
+ 
+        int sr = sqrt(x);
+         
+        // if product of square root is equal, then return T/F
+        return (sr * sr == x);
+    }
     return false;
 }
 
 void squarePairs(int number)
 {
+	int sum;
+	int difference;
+
     printf("The square pair numbers are:-\n\n");
     printf("\tN\tP\tN+P\tP-N\n");
     printf("-----------------------------------\n\n");
     int N = 4;
     int P = 5;
-    while(P <= number)
-    {
-	sum = P + N;
-	difference = P - N;
+    //while(P <= number)
+    //{
+	//sum = P + N;
+	//difference = P - N;
 	// make perfect square function and check to see if
 	// sum and difference are perfect squares
-	P++;
-	N++;
-    }
+	//P++;
+	//N++;
+    //}
+
+	// Declare array to hold 2 through number
+	int arrayLength = (number-2);
+	int numbers[arrayLength];
+
+	for(int i=2; i<=number; i++){
+		numbers[i-2] = i;
+	}
+
+	// Check array is working properly:
+	/*
+	for (int j = 0; j <= arrayLength; j++ ) {
+      printf("Element[%d] = %d\n", j, numbers[j] );
+   	}
+	*/
+
+	for (int b=0; b<= arrayLength; b++){
+		for (int k=0; k<=arrayLength; k++){
+			sum = (numbers[b] + numbers[k]);
+			difference = (numbers[b] - numbers[k]);
+
+			bool sumResult = perfectSquare(sum);
+			bool diffResult = perfectSquare(difference);
+
+			if (sumResult == true && diffResult == true){
+				printf("%d    %d    %d    %d\n", b, k, sum, difference);
+			}
+		}
+	}
+
 
 }
