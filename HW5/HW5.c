@@ -32,14 +32,18 @@ int main()
 
     while(runProgram)
     {
-        printf("Enter A Positive Integer ----> : ");
+        printf("\nEnter A Positive Integer ----> : ");
         inputCheck = scanf("%d", &userInput);
 
 		if(inputCheck == 1) // check if got input
 		{
-			if(userInput <= 1 || userInput > 1000) // check if in bounds
+			if (userInput <0){
+				printf("\nInvalid Number, Number must be positive.\n\n");
+				runFunctions = false; // don't run the functions if out of bounds
+			}
+			else if(userInput <= 1 || userInput > 1000) // check if in bounds
 			{
-				printf("Invalid Number, Number must be between 1 and 1000\n\n");
+				printf("\nInvalid Number, Number must be between 1 and 1000\n\n");
 			runFunctions = false; // don't run the functions if out of bounds
 			}
 			
@@ -68,7 +72,7 @@ int main()
 		char yesOrNo;
 		while(!validYesOrNo)
 		{
-			printf("Would you like to repeat the process for another number?\n\n");
+			printf("\nWould you like to repeat the process for another number?\n\n");
 			printf("Enter Y, y or N, n -------->");
 			scanf(" %c", &yesOrNo);
 			yesOrNo = tolower(yesOrNo);
@@ -183,19 +187,18 @@ void squarePairs(int number)
    	}
 	*/
 
-	for (int b=0; b<= arrayLength; b++){
-		for (int k=0; k<=arrayLength; k++){
-			sum = (numbers[b] + numbers[k]);
-			difference = (numbers[b] - numbers[k]);
+	for (int n=0; n<= arrayLength; n++){
+		for (int p=0; p<=arrayLength; p++){
+			sum = (numbers[n] + numbers[p]);
+			difference = (numbers[p] - numbers[n]);
 
 			bool sumResult = perfectSquare(sum);
 			bool diffResult = perfectSquare(difference);
 
-			if (sumResult == true && diffResult == true){
-				printf("%d    %d    %d    %d\n", b, k, sum, difference);
+			if (sumResult == true && diffResult == true && difference !=0){
+				printf("%9d%8d%9d%8d \n", numbers[n], numbers[p], sum, difference);
 			}
 		}
 	}
-
 
 }
