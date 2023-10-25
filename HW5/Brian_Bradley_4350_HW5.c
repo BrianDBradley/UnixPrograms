@@ -25,10 +25,10 @@ int main()
     printf("give a square number and when subtracted also give a square number.\n");
     printf("This program displays all the pairs of numbers.\n\n");
 
-    int userInput = 0;
-    int inputCheck;
-    bool runProgram = true; // run entire while loop
-    bool runFunctions = true; // run the functions - used after checking number input
+    int userInput = 0;			// Initialize user input for interaction
+    int inputCheck;				// 0 no input, 1 input
+    bool runProgram = true; 	// run entire while loop
+    bool runFunctions = true;	// run the functions - used after checking number input
 
     while(runProgram)
     {
@@ -37,6 +37,7 @@ int main()
 
 		if(inputCheck == 1) // check if got input
 		{
+			runFunctions = true;
 			if (userInput <0){
 				printf("\nInvalid Number, Number must be positive.\n\n");
 				runFunctions = false; // don't run the functions if out of bounds
@@ -78,20 +79,20 @@ int main()
 			yesOrNo = tolower(yesOrNo);
 			if(yesOrNo == 'y')
 			{
-			validYesOrNo = true;
-			runProgram = true;
+				validYesOrNo = true;
+				runProgram = true;
 			}
 			else if(yesOrNo == 'n')
 			{
-			printf("\n\nMathematics and Computer Programming\n");
-			printf("Prepared by Brian Bradley and Karyn Remsing\n");
-			printf("10-25-2023\n\n");
-			validYesOrNo = true;
-			runProgram = false;
+				printf("\n\nMathematics and Computer Programming\n");
+				printf("Prepared by Brian Bradley and Karyn Remsing\n");
+				printf("10-25-2023\n\n");
+				validYesOrNo = true;
+				runProgram = false;
 			}
 			else
 			{
-			printf("Invalid choice, must enter Y, y or N, n\n\n");
+				printf("\nInvalid choice, must enter Y, y or N, n\n\n");
 				validYesOrNo = false;
 			}
 		}	
@@ -112,8 +113,8 @@ bool checkPrime(int number)
 void allPrimes(int number)
 {
     // find the last prime for output purposes
-    bool lastPrimeFound = false;
-    int lastPrime = number - 1;
+    bool lastPrimeFound = false;	// Condition for checking prime
+    int lastPrime = number - 1;		// the last prime number
     while(!lastPrimeFound)
     {
 	if(checkPrime(lastPrime))
@@ -138,14 +139,11 @@ void allPrimes(int number)
     printf("\n\n");
 }
 
-// not specified for project but probably helpful for the function below this one
-// check if number is perfect square
+// Check if number is perfect square
 bool perfectSquare(int x)
 {
 	if (x >= 0) {
- 
-        int sr = sqrt(x);
-         
+        int sr = sqrt(x); 
         // if product of square root is equal, then return T/F
         return (sr * sr == x);
     }
@@ -154,39 +152,21 @@ bool perfectSquare(int x)
 
 void squarePairs(int number)
 {
-	int sum;
-	int difference;
+	int sum;						// N+P
+	int difference;					// P-N
+	int arrayLength = (number-2);	// UserInput minus 2
+	int numbers[arrayLength];		// array of 2 thorugh the userInput number
 
     printf("The square pair numbers are:-\n\n");
     printf("\tN\tP\tN+P\tP-N\n");
     printf("-----------------------------------\n\n");
-    int N = 4;
-    int P = 5;
-    //while(P <= number)
-    //{
-	//sum = P + N;
-	//difference = P - N;
-	// make perfect square function and check to see if
-	// sum and difference are perfect squares
-	//P++;
-	//N++;
-    //}
 
-	// Declare array to hold 2 through number
-	int arrayLength = (number-2);
-	int numbers[arrayLength];
-
+	// Create array of 2 through user input number
 	for(int i=2; i<=number; i++){
 		numbers[i-2] = i;
 	}
 
-	// Check array is working properly:
-	/*
-	for (int j = 0; j <= arrayLength; j++ ) {
-      printf("Element[%d] = %d\n", j, numbers[j] );
-   	}
-	*/
-
+	// Iterate through numbersArray, N and P
 	for (int n=0; n<= arrayLength; n++){
 		for (int p=0; p<=arrayLength; p++){
 			sum = (numbers[n] + numbers[p]);
