@@ -2,6 +2,13 @@
 // CS 4350 - 251 - Unix Systems Programming
 // Assignment Number: 6
 // Due Date: 11 / 6 / 2023
+//
+// 1. The programs must be syntactically and logically correct. The program
+// will be tested using Zeus Server at the university using the simple gcc
+// command followed by the filename.c such as gcc xxxx.c
+// 2. Look at the sample run and follow the format.
+// 3. You must upload your solution using Canvas - Make sure you include the
+// above as comments in your program.
 
 #include <stdio.h>
 #include <stdlib.h>
