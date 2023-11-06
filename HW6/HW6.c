@@ -81,13 +81,13 @@ int main()
 
 	// 12) local host name
 	char localhostbuffer[256];		// holds the local host name
-	int localhostint;				// integer to hold local host size
+	int localhostint;		// integer to hold local host size
 	localhostint = gethostname(localhostbuffer, sizeof(localhostbuffer));
 	printf("\n\n12.Local host name : %s", localhostbuffer);       
 
 	// 13) host name
-	char hostbuffer[256];			// holds host name
-	int hostint;					// integer to hold the host name size
+	char hostbuffer[256];	// holds host name
+	int hostint;	// integer to hold the host name size
 	hostint = gethostname(hostbuffer, sizeof(hostbuffer));
 	printf("\n\n13.Host name : %s", hostbuffer);
 
@@ -99,8 +99,8 @@ int main()
 
 	//  16. Display The priority level of the process :
 	int which = PRIO_PROCESS;	//the process that is priority
-	id_t pid;					// real user procsess id				
-	int ret;					// return value for level of priority
+	id_t pid;	// real user procsess id				
+	int ret;	// return value for level of priority
 	pid = getpid();	
 	ret = getpriority(which, pid);
 	printf("\n\n16.Priority level of the process : %d", ret);
@@ -113,7 +113,7 @@ int main()
 	// 22. Display Owner’s group ID :
 	// 23. Display Owner’s effective user ID :
 	char filename[] = "p6in-1.txt";		// holds the first file name
-	uid_t euid;							// user identification number for effective uid		
+	uid_t euid;		// user identification number for effective uid		
 	euid = geteuid();
 
 	if (stat(filename, &file_stats) == 0) {
@@ -162,7 +162,7 @@ int main()
 		printf("Error: unable to rename the file");
 	}
 
-	// 28. Using a System Command , display the content of the new text file ( p6in-2.txt ) :
+	// 28. Using a System Command , display the content of the new text file :
 	printf("\n28.The content of the new p6in-2.txt file \n");
 	strcpy(command, "cat p6in-2.txt");
 	system(command);
