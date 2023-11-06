@@ -1,4 +1,4 @@
-# Got done to 15
+# Check on localhost/regular host  & I dont know if 30 needs a proper error
  - Some of the print statements are going in the wrong order. If i do a command like 'ls' through the system command, it prints before my print statement
 - I adjusted for this usig a fflush on the buffer, need to see if hes actually used that in his notes though or he ma y throw a fit.
   
