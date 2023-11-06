@@ -5,5 +5,7 @@
  - problem 12 asks for the local host, but all I can find in his slides are host, not local host. His example says it will print 'host OR local host' with no
    explanation as to why or how it will print one or the other :roll_eyes:
  - I also cannot find any difference
-   
- - most of everything we need seems to be in his lecture 5 slides
+
+- 17 seems too simple? Is this all he wants?
+
+-
