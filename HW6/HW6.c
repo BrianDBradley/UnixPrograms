@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <sys/utsname.h>
 #include <unistd.h>
+#include <sys/resource.h>
 
 int main()
 {
